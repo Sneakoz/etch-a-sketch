@@ -28,12 +28,6 @@ function changePixelCount() {
     }
 }
 
-function removePixels() {
-    while (sketchArea.firstChild) {
-        sketchArea.removeChild(sketchArea.firstChild)
-    }
-}
-
 function createPixels() {
     for (let i = 0; i < pixelsTotal; i++) {
         const pixel = document.createElement('div');
@@ -44,6 +38,12 @@ function createPixels() {
         sketchArea.appendChild(pixel);
 
         pixel.addEventListener('mouseover', changePixelColor)
+    }
+}
+
+function removePixels() {
+    while (sketchArea.firstChild) {
+        sketchArea.removeChild(sketchArea.firstChild)
     }
 }
 
