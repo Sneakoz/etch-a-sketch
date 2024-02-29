@@ -1,4 +1,4 @@
-const areaSize = 600;
+const areaSize = 700;
 let pixelsOneWay = 16;
 let pixelsTotal = pixelsOneWay * pixelsOneWay;
 let pixelSize = (areaSize / pixelsOneWay) ;
@@ -8,8 +8,9 @@ const sketchArea = document.querySelector('#sketchArea');
 sketchArea.style.width = `${areaSize}px`;
 sketchArea.style.height = `${areaSize}px`;
 
-
-createPixels()
+function changePixelColor() {
+    this.style.backgroundColor = 'black'
+}
 
 function createPixels() {
     for (let i = 0; i < pixelsTotal; i++) {
@@ -20,5 +21,9 @@ function createPixels() {
         pixel.classList.add('pixel');
 
         sketchArea.appendChild(pixel);
+
+        pixel.addEventListener('mouseover', changePixelColor)
     }
 }
+
+createPixels()
