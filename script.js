@@ -6,10 +6,6 @@ let pixelSize = areaSize / pixelsOneWay ;
 const sketchArea = document.querySelector('#sketchArea');
 sketchArea.style.width = sketchArea.style.height = `${areaSize}px`;
 
-function changePixelColor() {
-    this.style.backgroundColor = 'black'
-}
-
 const sizebtn = document.querySelector('#prompt');
 sizebtn.addEventListener('click', changePixelCount);
 
@@ -32,7 +28,6 @@ function changePixelCount() {
     }
 }
 
-
 function removePixels() {
     while (sketchArea.firstChild) {
         sketchArea.removeChild(sketchArea.firstChild)
@@ -50,6 +45,10 @@ function createPixels() {
 
         pixel.addEventListener('mouseover', changePixelColor)
     }
+}
+
+function changePixelColor() {
+    this.style.backgroundColor = 'black'
 }
 
 createPixels()
