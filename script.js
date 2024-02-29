@@ -1,10 +1,24 @@
-creategrid(16)
+const areaSize = 600;
+let pixelsOneWay = 16;
+let pixelsTotal = pixelsOneWay * pixelsOneWay;
+let pixelSize = (areaSize / pixelsOneWay) ;
 
-function creategrid(size) {
-    let container = document.querySelector('#container');
 
-    for (let i = 0; i < size; i++) {
-        newdiv = document.createElement('div');
-        container.appendChild(newdiv)
+const sketchArea = document.querySelector('#sketchArea');
+sketchArea.style.width = `${areaSize}px`;
+sketchArea.style.height = `${areaSize}px`;
+
+
+createPixels()
+
+function createPixels() {
+    for (let i = 0; i < pixelsTotal; i++) {
+        const pixel = document.createElement('div');
+
+        pixel.style.width = `${pixelSize}px`;
+        pixel.style.height = `${pixelSize}px`;
+        pixel.classList.add('pixel');
+
+        sketchArea.appendChild(pixel);
     }
 }
