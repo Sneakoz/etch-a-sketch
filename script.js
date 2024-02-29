@@ -18,7 +18,7 @@ clearbtn.addEventListener('click', () => {
 function changePixelCount() {
     let newPixelCount = prompt('Enter Pixel Count. Max = 100');
     console.log(newPixelCount)
-    if (newPixelCount >= 100) {
+    if (newPixelCount > 100) {
         alert('Max Pixel count is 100 by 100')
     } else {
         pixelsTotal = newPixelCount * newPixelCount;
