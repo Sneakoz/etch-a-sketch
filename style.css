@@ -17,3 +17,14 @@ body {
 .pixel {
     outline: 1px solid whitesmoke;
 }
+
+.header {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 40px;
+}
+
+button {
+    padding: 10px;
+}
