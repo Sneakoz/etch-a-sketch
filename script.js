@@ -60,4 +60,5 @@ slider.oninput = function () {
     createPixels();
 }
 
-createPixels(16)
+// Create the initial pixels (16x16)
+createPixels()
