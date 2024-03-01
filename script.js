@@ -11,6 +11,8 @@ const sliderContainer = document.querySelector('#sliderContainer');
 const slider = document.querySelector("#slider");
 const sliderValue = document.querySelector('#sliderValue');
 
+slider.addEventListener('oninput', changePixelCount2)
+
 // Set the sliderValue to the value of the pixelsOneWay
 sliderValue.textContent = `${slider.value} x ${slider.value} Resolution`
 
@@ -62,4 +64,12 @@ function changePixelCount() {
     }
 }
 
-createPixels()
+function  changePixelCount2() {
+    let newSliderValue = `${this.value} x ${this.value} Resolution`;
+    sliderValue.textContent = newSliderValue;
+    pixelsOneWay = this.value;
+    removePixels();
+    createPixels();
+}
+
+createPixels(16)
