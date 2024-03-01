@@ -6,20 +6,23 @@ let pixelsOneWay = 16;
 const sketchArea = document.querySelector('#sketchArea');
 sketchArea.style.width = sketchArea.style.height = `${areaSize}px`;
 
-// Import the sliderContainer ,slider and sliderValue
+// Import the sliderContainer ,slider and sliderText
 const sliderContainer = document.querySelector('#sliderContainer');
 const slider = document.querySelector("#slider");
-const sliderValue = document.querySelector('#sliderValue');
+const sliderText = document.querySelector('#sliderText');
 
-// Set the sliderValue to the value of the pixelsOneWay
-sliderValue.textContent = `${slider.value} x ${slider.value} Resolution`
+// Set the sliderValue to the value of the *pixelsOneWay*
+sliderText.textContent = `Resolution = ${slider.value} x ${slider.value}`
 
+// Import clear button and add functionality
 const clearbtn = document.querySelector('#clear');
 clearbtn.addEventListener('click', () => {
     removePixels()
     createPixels()
 })
 
+// This function creates pixels on the sketch area using the *pixelsOneWay* value and adds an event listener
+// that applies the funtion *changePixelColor* of the pixel on *mouseover*
 function createPixels() {
     let pixelsTotal = pixelsOneWay * pixelsOneWay;
     let pixelSize = areaSize / pixelsOneWay ;
@@ -36,19 +39,22 @@ function createPixels() {
     }
 }
 
+// This function removes all pixels from the sketch area
 function removePixels() {
     while (sketchArea.firstChild) {
         sketchArea.removeChild(sketchArea.firstChild)
     }
 }
 
+// This function changes the color to black of the pixel its used on
 function changePixelColor() {
     this.style.backgroundColor = 'black'
 }
 
+// This is an event listener on the slider that
 slider.oninput = function () {
-    let newSliderValue = `${this.value} x ${this.value} Resolution`;
-    sliderValue.textContent = newSliderValue;
+    let newSliderText = `Resolution = ${this.value} x ${this.value}`;
+    sliderText.textContent = newSliderText;
     pixelsOneWay = this.value;
     removePixels();
     createPixels();
