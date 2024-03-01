@@ -1,7 +1,7 @@
 const areaSize = 700;
 let pixelsOneWay = 16;
-let pixelsTotal = pixelsOneWay * pixelsOneWay;
-let pixelSize = areaSize / pixelsOneWay ;
+
+
 
 const sketchArea = document.querySelector('#sketchArea');
 sketchArea.style.width = sketchArea.style.height = `${areaSize}px`;
@@ -15,20 +15,10 @@ clearbtn.addEventListener('click', () => {
     createPixels()
 })
 
-function changePixelCount() {
-    let newPixelCount = prompt('Enter Pixel Count. Max = 100');
-    console.log(newPixelCount)
-    if (newPixelCount > 100) {
-        alert('Max Pixel count is 100 by 100')
-    } else {
-        pixelsTotal = newPixelCount * newPixelCount;
-        pixelSize = areaSize / newPixelCount
-        removePixels()
-        createPixels()
-    }
-}
-
 function createPixels() {
+    let pixelsTotal = pixelsOneWay * pixelsOneWay;
+    let pixelSize = areaSize / pixelsOneWay ;
+
     for (let i = 0; i < pixelsTotal; i++) {
         const pixel = document.createElement('div');
 
@@ -49,6 +39,18 @@ function removePixels() {
 
 function changePixelColor() {
     this.style.backgroundColor = 'black'
+}
+
+function changePixelCount() {
+    let newPixelCount = prompt('Enter Pixel Count. Max = 100');
+    console.log(newPixelCount)
+    if (newPixelCount > 100) {
+        alert('Max Pixel count is 100 by 100')
+    } else {
+        pixelsOneWay = newPixelCount;
+        removePixels()
+        createPixels()
+    }
 }
 
 createPixels()
