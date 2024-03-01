@@ -14,10 +14,6 @@ const sliderValue = document.querySelector('#sliderValue');
 // Set the sliderValue to the value of the pixelsOneWay
 sliderValue.textContent = `${slider.value} x ${slider.value} Resolution`
 
-
-const sizebtn = document.querySelector('#prompt');
-sizebtn.addEventListener('click', changePixelCount);
-
 const clearbtn = document.querySelector('#clear');
 clearbtn.addEventListener('click', () => {
     removePixels()
