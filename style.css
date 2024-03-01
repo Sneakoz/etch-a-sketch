@@ -11,7 +11,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     background-color: white;
-    margin: 100px auto;
+    margin: 100px auto 0 auto;
 }
 
 .pixel {
@@ -41,11 +41,20 @@ button {
     background: rgba(200, 255, 238, 0.726);
     opacity: 0.7;
     -webkit-transition: .2s;
-    transform: opacity .2s;
+    transition: opacity .2s;
 }
 
 #slider:hover {
     opacity: 1;
+}
+
+#slider::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #04AA6D;
+    cursor: pointer;
 }
 
 #sliderValue {
