@@ -28,3 +28,26 @@ body {
 button {
     padding: 10px;
 }
+
+#sliderContainer {
+    margin: 0 auto;
+}
+
+#slider {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 25px;
+    width: 100%;
+    background: rgba(200, 255, 238, 0.726);
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transform: opacity .2s;
+}
+
+#slider:hover {
+    opacity: 1;
+}
+
+#sliderValue {
+    text-align: center;
+}
