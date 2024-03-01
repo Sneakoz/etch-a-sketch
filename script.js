@@ -11,8 +11,6 @@ const sliderContainer = document.querySelector('#sliderContainer');
 const slider = document.querySelector("#slider");
 const sliderValue = document.querySelector('#sliderValue');
 
-slider.addEventListener('oninput', changePixelCount2)
-
 // Set the sliderValue to the value of the pixelsOneWay
 sliderValue.textContent = `${slider.value} x ${slider.value} Resolution`
 
@@ -52,19 +50,7 @@ function changePixelColor() {
     this.style.backgroundColor = 'black'
 }
 
-function changePixelCount() {
-    let newPixelCount = prompt('Enter Pixel Count. Max = 100');
-    console.log(newPixelCount)
-    if (newPixelCount > 100) {
-        alert('Max Pixel count is 100 by 100')
-    } else {
-        pixelsOneWay = newPixelCount;
-        removePixels()
-        createPixels()
-    }
-}
-
-function  changePixelCount2() {
+slider.oninput = function () {
     let newSliderValue = `${this.value} x ${this.value} Resolution`;
     sliderValue.textContent = newSliderValue;
     pixelsOneWay = this.value;
