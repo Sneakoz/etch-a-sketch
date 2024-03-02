@@ -10,8 +10,7 @@ let pixelsOneWay = 16;
 const sketchArea = document.querySelector('#sketchArea');
 sketchArea.style.width = sketchArea.style.height = `${areaSize}px`;
 
-// Import the sliderContainer ,slider and sliderText
-const sliderContainer = document.querySelector('#sliderContainer');
+// Import the slider and sliderText
 const slider = document.querySelector("#slider");
 const sliderText = document.querySelector('#sliderText');
 
@@ -69,10 +68,30 @@ slider.oninput = function () {
 //
 
 // Import header buttons
-const gridToggle = document.querySelector('#gridToggle');
-const eraser = document.querySelector('#eraser');
-const brush = document.querySelector('#brush');
-const palette = document.querySelector('#palette');
+const gridTogglebtn = document.querySelector('#gridToggle');
+const eraserbtn = document.querySelector('#eraser');
+const brushbtn = document.querySelector('#brush');
+const palettebtn = document.querySelector('#palette');
+
+// This is the grid toggle function and event listener
+let gridVisible = true;
+function gridToggle() {
+    gridVisible = !gridVisible;
+    const pixel = document.querySelectorAll('.pixel');
+    if (gridVisible == true) {
+        gridTogglebtn.style.color = accentColor;
+        pixel.forEach(currentPixel => {
+            currentPixel.style.outline = 'none';
+        });
+    } else {
+        gridTogglebtn.style.color = inactiveColor;
+        pixel.forEach(currentPixel => {
+            currentPixel.style.outline = '1px solid whitesmoke'
+        });
+    };
+}
+
+gridTogglebtn.addEventListener('click', gridToggle);
 
 
 
