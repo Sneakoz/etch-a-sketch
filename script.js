@@ -1,3 +1,7 @@
+// Import css styles
+const accentColor = getComputedStyle(document.body).getPropertyValue('--accent-color');
+const inactiveColor = getComputedStyle(document.body).getPropertyValue('--inactive-color');
+
 // Declare areaSize which is the width of the sketch area and pixelsOneWay
 const areaSize = 700;
 let pixelsOneWay = 16;
@@ -51,7 +55,7 @@ function changePixelColor() {
     this.style.backgroundColor = 'black'
 }
 
-// This is an event listener on the slider that
+// This is an event listener on the slider that changes resolution
 slider.oninput = function () {
     let newSliderText = `Resolution = ${this.value} x ${this.value}`;
     sliderText.textContent = newSliderText;
@@ -59,6 +63,19 @@ slider.oninput = function () {
     removePixels();
     createPixels();
 }
+
+//
+// Header buttons functionality here
+//
+
+// Import header buttons
+const gridToggle = document.querySelector('#gridToggle');
+const eraser = document.querySelector('#eraser');
+const brush = document.querySelector('#brush');
+const palette = document.querySelector('#palette');
+
+
+
 
 // Create the initial pixels (16x16)
 createPixels()

@@ -30,6 +30,7 @@ body {
     color: var(--inactive-color);
     gap: 40px;
     margin: 40px;
+    cursor: pointer;
 }
 
 button {
