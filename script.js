@@ -28,7 +28,7 @@ clearbtn.addEventListener('click', () => {
 // that applies the funtion *changePixelColor* of the pixel on *mouseover*
 function createPixels() {
     let pixelsTotal = pixelsOneWay * pixelsOneWay;
-    let pixelSize = areaSize / pixelsOneWay ;
+    let pixelSize = areaSize / pixelsOneWay;
 
     for (let i = 0; i < pixelsTotal; i++) {
         const pixel = document.createElement('div');
@@ -36,11 +36,18 @@ function createPixels() {
         pixel.style.width = pixel.style.height = `${pixelSize}px`;
         pixel.classList.add('pixel');
 
+        if (gridVisible) {
+            pixel.style.outline = 'none';
+        } else {
+            pixel.style.outline = '1px solid whitesmoke';
+        }
+
         sketchArea.appendChild(pixel);
 
-        pixel.addEventListener('mouseover', changePixelColor)
+        pixel.addEventListener('mouseover', changePixelColor);
     }
 }
+
 
 // This function removes all pixels from the sketch area
 function removePixels() {
@@ -92,6 +99,8 @@ function gridToggle() {
 }
 
 gridTogglebtn.addEventListener('click', gridToggle);
+
+// This is the erease function and event listener
 
 
 
